@@ -4,14 +4,19 @@
    ----------------------------------------------
     Installer GSAP
    ---------------------------------------------- */
-
+import { gsap } from "gsap";
 /* -----------------------
     Exercice 1
    -----------------------
     Déplacer l'item 1 de 100px vers la gauche
     durant 3 secondes
    ----------------------- */
-
+gsap.to("#js-exercise-1", {
+  x: -100,
+  duration: 3,
+  repeat: -1,
+  yoyo: true,
+});
 /* -----------------------
     Exercice 2
    -----------------------
@@ -19,6 +24,13 @@
     durant 2 secondes
     après un délai de 2 secondes
    ----------------------- */
+gsap.to("#js-exercise-2", {
+  rotate: 45,
+  duration: 2,
+  delay: 2,
+  repeat: -1,
+  yoyo: true,
+});
 
 /* -----------------------
     Exercice 3
@@ -28,7 +40,14 @@
     durant 2 secondes
     après un délai de 1 secondes
    ----------------------- */
-
+gsap.to("#js-exercise-3", {
+  scale: 0.75,
+  opacity: 0.5,
+  duration: 2,
+  delay: 1,
+  repeat: -1,
+  yoyo: true,
+});
 /* -----------------------
     Exercice 4
    -----------------------
@@ -37,7 +56,23 @@
     durant 2 secondes
     après un délai de 1 secondes
    ----------------------- */
-
+gsap.fromTo(
+  "#js-exercise-4",
+  {
+    scale: 0.75,
+    opacity: 0.5,
+    duration: 2,
+    delay: 1,
+    repeat: -1,
+    yoyo: true,
+  },
+  {
+    scale: 1,
+    opacity: 1,
+    repeat: -1,
+    yoyo: true,
+  }
+);
 /* -----------------------
     Exercice 5 (timeline)
    -----------------------
@@ -48,7 +83,22 @@
     PUIS déplacer l'item 5 de 100px vers le haut
     durant 2 secondes après un délai de 1 seconde
    ----------------------- */
-
+gsap
+  .timeline()
+  .to("#js-exercise-5", {
+    x: -100,
+    duration: 3,
+  })
+  .to("#js-exercise-5", {
+    rotate: 45,
+    duration: 2,
+    delay: 1,
+  })
+  .to("#js-exercise-5", {
+    y: -100,
+    duration: 2,
+    delay: 1,
+  });
 /* -----------------------
     Exercice 6 (timeline)
    -----------------------
