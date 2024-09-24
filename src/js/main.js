@@ -84,7 +84,10 @@ gsap.fromTo(
     durant 2 secondes après un délai de 1 seconde
    ----------------------- */
 gsap
-  .timeline()
+  .timeline({
+    yoyo: true,
+    repeat: -1,
+  })
   .to("#js-exercise-5", {
     x: -100,
     duration: 3,
@@ -107,7 +110,17 @@ gsap
     ET SIMULTANEMENT changer l'item 6 d'échelle (75%)
     durant 5 secondes
    ----------------------- */
-
+gsap
+  .timeline({
+    yoyo: true,
+    repeat: -1,
+  })
+  .to("#js-exercise-6", {
+    y: 100,
+    duration: 3,
+    scale: 0.75,
+    duration: 5,
+  });
 /* -----------------------
     Exercice 7 (repeat + yoyo)
    -----------------------
@@ -116,10 +129,46 @@ gsap
     avec un easing elastic.out
     et répéter ce mouvement à l'infini
    ----------------------- */
-
+gsap
+  .timeline({
+    yoyo: true,
+    repeat: -1,
+  })
+  .to("#js-exercise-7", {
+    rotate: 135,
+    duration: 2,
+    ease: "elastic.out(1,0.3)",
+  });
 /* -----------------------
     Exercice 8
    -----------------------
     Réaliser une animation libre
     lorsque le bouton est cliqué
    ----------------------- */
+
+let buttonElement = document.querySelector("#js-exercise-8");
+let paragraphElement = document.querySelector("#js-exercise-8 p");
+
+buttonElement.addEventListener("click", function () {
+  let randomNumber = Math.floor(Math.random() * 100) + 1;
+  paragraphElement.textContent = randomNumber;
+  gsap.fromTo(
+    paragraphElement,
+    { scale: 1 },
+    { scale: 1.2, duration: 0.2, ease: "power1.out", yoyo: true, repeat: 1 }
+  );
+});
+
+// autre transition possible mais avec ce JS et CSS commenté à la fin:
+
+// let buttonElement = document.querySelector("#js-exercise-8");
+// let paragraphElement = document.querySelector("#js-exercise-8 p");
+
+// buttonElement.addEventListener("click", function () {
+//   let randomNumber = Math.floor(Math.random() * 100) + 1;
+//   paragraphElement.textContent = randomNumber;
+//   paragraphElement.classList.add("zoom");
+//   setTimeout(function () {
+//     paragraphElement.classList.remove("zoom");
+//   }, 300);
+// });

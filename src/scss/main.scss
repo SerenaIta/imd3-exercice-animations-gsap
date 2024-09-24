@@ -79,3 +79,16 @@ button:hover {
   border-radius: 20px;
 }
 */
+
+// ------------------------
+// autre transition possible mais avec ce css et JS commenté à la fin:
+
+// /* Ajoute une transition douce pour le zoom */
+// #js-exercise-8 p {
+//   transition: transform 0.3s ease; /* Animation sur la transformation (zoom) */
+// }
+
+// /* Effet de zoom appliqué lorsqu'on ajoute la classe .zoom */
+// .zoom {
+//   transform: scale(1.2); /* Zoom à 120% */
+// }
